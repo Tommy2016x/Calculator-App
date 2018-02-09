@@ -2,6 +2,9 @@ var output = document.getElementById("output");
 
 var storage = 0;
 var choice = "";
+var operatorclick = false
+var clickadded = false
+
 
 var btnclear =document.getElementById("btnclear");
 var btn0 =document.getElementById("btn0");
@@ -45,12 +48,19 @@ function click0() {
 }
 
 function click1() {
-    choice = choice +"1";
-    output.innerHTML = choice;
+    if (operatorclick == false){
+        choice = choice +"1";
+        output.innerHTML = choice;
+    }
+
+
 }
+
 function click2() {
-    choice = choice + "2";
-    output.innerHTML = choice;
+    if (operatorclick == false){
+        choice = choice +"2";
+        output.innerHTML = choice;
+    }
 }
 function click3() {
     choice = 3;
@@ -79,14 +89,29 @@ function clickdeci() {
 }
 
 function add(){
-    var temp = Number(choice);
+    if (operatorclick == false){
+        operatorclick = true;
+        var temp = Number(choice);
+        storage = storage +temp;
+        choice = ""
+    }
 
-    storage = storage +temp;
-    output.innerHTML = storage;
-    choice = "";
+    else{
+        var temp = Number(choice);
+
+        storage = storage +temp;
+        output.innerHTML = storage;
+        choice = "";
+    }
+
 }
 
 function sub(){
+    if (operatorclick == false){
+        operatorclick = true;
+        choice = ""
+    }
+
     var temp = Number(choice);
 
     storage = storage -temp;
