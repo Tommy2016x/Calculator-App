@@ -2,8 +2,10 @@ var output = document.getElementById("output");
 
 var storage = 0;
 var choice = "";
-var operatorclick = false
-var clickadded = false
+var operatorclick = false;
+var clickadded = false;
+var clicksub = false;
+var deciclick = false;
 
 
 var btnclear =document.getElementById("btnclear");
@@ -44,48 +46,66 @@ btndec.addEventListener("click",clickdeci);
 
 
 function click0() {
-     choice = 0;
+    if (choice.length !== 0) {
+        choice = choice +"0";
+        output.innerHTML = choice;
+    }
+
 }
 
 function click1() {
-    if (operatorclick == false){
+
         choice = choice +"1";
         output.innerHTML = choice;
-    }
+
 
 
 }
 
 function click2() {
-    if (operatorclick == false){
+
         choice = choice +"2";
         output.innerHTML = choice;
-    }
+
 }
 function click3() {
-    choice = 3;
+    choice = choice +"3";
+    output.innerHTML = choice;
 }
 function click4() {
-    choice = 4;
+    choice = choice +"4";
+    output.innerHTML = choice;
 }
 function click5() {
-    choice = 5;
+    choice = choice +"5";
+    output.innerHTML = choice;
 }
 function click6() {
-    choice = 6;
+    choice = choice +"6";
+    output.innerHTML = choice;
 }
 function click7() {
-    choice = 7;
+    choice = choice +"7";
+    output.innerHTML = choice;
 }
 function click8() {
-    choice = 8;
+    choice = choice +"8";
+    output.innerHTML = choice;
 }
 function click9() {
-    choice = 9;
+    choice = choice +"9";
+    output.innerHTML = choice;
 }
 
 function clickdeci() {
-    choice = ".";
+    if (deciclick == false){
+        choice = choice +".";
+        output.innerHTML = choice;
+        deciclick = true;
+    }
+
+
+
 }
 
 function add(){
@@ -94,14 +114,31 @@ function add(){
         var temp = Number(choice);
         storage = storage +temp;
         choice = ""
+        clickadded = true;
     }
 
     else{
-        var temp = Number(choice);
 
-        storage = storage +temp;
-        output.innerHTML = storage;
-        choice = "";
+        if(clickadded == true) {
+            var temp = Number(choice);
+
+            storage = storage +temp;
+            output.innerHTML = storage;
+            choice = "";
+            clickadded = true;
+            clicksub = false;
+        }
+        else if (clicksub == true){
+            var temp = Number(choice);
+
+            storage = storage -temp;
+            output.innerHTML = storage;
+            choice = "";
+            clickadded = true;
+            clicksub = false;
+        }
+
+
     }
 
 }
@@ -109,7 +146,31 @@ function add(){
 function sub(){
     if (operatorclick == false){
         operatorclick = true;
+        var temp = Number(choice);
+        storage = storage +temp;
         choice = ""
+        clicksub = true;
+
+    }
+    else {
+        if (clickadded == true) {
+            var temp = Number(choice);
+
+            storage = storage +temp;
+            output.innerHTML = storage;
+            choice = "";
+            clicksub = true;
+            clickadded = false;
+        }
+        else if (clicksub == true) {
+            var temp = Number(choice);
+
+            storage = storage -temp;
+            output.innerHTML = storage;
+            choice = "";
+            clicksub = true;
+            clickadded = false;
+        }
     }
 
     var temp = Number(choice);
@@ -132,6 +193,8 @@ function equal(){
 }
 
 function clear(){
+    output.innerHTML =0
+    choice = "";
     storage = 0;
 }
 
