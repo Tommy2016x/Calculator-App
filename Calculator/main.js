@@ -5,7 +5,11 @@ var choice = "";
 var operatorclick = false;
 var clickadded = false;
 var clicksub = false;
+var clickdiv = false;
 var deciclick = false;
+var multiclick = false;
+var equalclick = false;
+var equalchoice = 0;
 
 
 var btnclear =document.getElementById("btnclear");
@@ -46,53 +50,78 @@ btndec.addEventListener("click",clickdeci);
 
 
 function click0() {
+    if(equalclick == true) {
+        storage = 0;
+    }
     if (choice.length !== 0) {
         choice = choice +"0";
         output.innerHTML = choice;
     }
-
 }
 
 function click1() {
-
+    if(equalclick == true){
+        storage = 0;
+    }
         choice = choice +"1";
         output.innerHTML = choice;
-
-
-
 }
 
 function click2() {
-
+    if(equalclick == true){
+        storage = 0;
+    }
         choice = choice +"2";
         output.innerHTML = choice;
 
 }
 function click3() {
+    if(equalclick == true){
+        storage = 0;
+}
     choice = choice +"3";
     output.innerHTML = choice;
 }
 function click4() {
+    if(equalclick == true){
+
+        storage = 0;
+}
     choice = choice +"4";
     output.innerHTML = choice;
 }
 function click5() {
+    if(equalclick == true){
+        storage = 0;
+}
     choice = choice +"5";
     output.innerHTML = choice;
 }
 function click6() {
+    if(equalclick == true){
+        storage = 0;
+}
     choice = choice +"6";
     output.innerHTML = choice;
 }
 function click7() {
+    if(equalclick == true){
+        storage = 0;
+}
     choice = choice +"7";
     output.innerHTML = choice;
 }
 function click8() {
+    if(equalclick == true){
+        storage = 0;
+}
     choice = choice +"8";
     output.innerHTML = choice;
 }
 function click9() {
+    if(equalclick == true){
+        storage = 0;
+}
     choice = choice +"9";
     output.innerHTML = choice;
 }
@@ -109,12 +138,17 @@ function clickdeci() {
 }
 
 function add(){
+    if (equalclick = true){
+        equalclick = false;
+    }
     if (operatorclick == false){
         operatorclick = true;
         var temp = Number(choice);
         storage = storage +temp;
         choice = ""
         clickadded = true;
+        deciclick = false;
+        equalclick = false;
     }
 
     else{
@@ -127,6 +161,9 @@ function add(){
             choice = "";
             clickadded = true;
             clicksub = false;
+            deciclick = false;
+            clickdiv = false;
+            multiclick = false;
         }
         else if (clicksub == true){
             var temp = Number(choice);
@@ -136,20 +173,50 @@ function add(){
             choice = "";
             clickadded = true;
             clicksub = false;
+            deciclick = false;
+            clickdiv = false;
+            multiclick = false;
         }
+        else if (clickdiv == true) {
+            var temp = Number(choice);
 
+            storage = storage / temp;
+            output.innerHTML = storage;
+            choice = "";
+            clickadded = true;
+            clicksub = false;
+            deciclick = false;
+            clickdiv = false;
+            multiclick = false;
+        }
+        else if (multiclick == true) {
+            var temp = Number(choice);
 
+            storage = storage * temp;
+            output.innerHTML = storage;
+            choice = "";
+            clickadded = true;
+            multiclick = false;
+            clickdiv = false;
+            clicksub = false;
+            deciclick = false;
+        }
     }
 
 }
 
 function sub(){
+    if (equalclick = true){
+        equalclick = false;
+    }
     if (operatorclick == false){
         operatorclick = true;
         var temp = Number(choice);
         storage = storage +temp;
         choice = ""
         clicksub = true;
+        deciclick = false;
+        equalclick = false;
 
     }
     else {
@@ -161,6 +228,9 @@ function sub(){
             choice = "";
             clicksub = true;
             clickadded = false;
+            deciclick = false;
+            clickdiv = false;
+            multiclick = false;
         }
         else if (clicksub == true) {
             var temp = Number(choice);
@@ -170,31 +240,233 @@ function sub(){
             choice = "";
             clicksub = true;
             clickadded = false;
+            deciclick = false;
+            clickdiv = false;
+            multiclick = false;
+        }
+        else if (clickdiv == true) {
+            var temp = Number(choice);
+
+            storage = storage / temp;
+            output.innerHTML = storage;
+            choice = "";
+            clicksub = true;
+            clickadded = false;
+            deciclick = false;
+            clickdiv = false;
+            multiclick = false;
+        }
+        else if (multiclick == true) {
+            var temp = Number(choice);
+
+            storage = storage * temp;
+            output.innerHTML = storage;
+            choice = "";
+            clicksub = true;
+            multiclick = false;
+            clickdiv = false;
+            clickadded = false;
+            deciclick = false;
         }
     }
 
-    var temp = Number(choice);
 
-    storage = storage -temp;
-    output.innerHTML = storage;
-    choice = "";
 }
 
 function div(){
-    storage = storage / choice;
+    if (equalclick = true){
+        equalclick = false;
+    }
+    if (operatorclick == false){
+        operatorclick = true;
+        var temp = Number(choice);
+        storage = storage + temp;
+        choice = ""
+        clickdiv = true;
+        deciclick = false;
+        equalclick = false;
+
+    }
+    else {
+        if (clickadded == true) {
+            var temp = Number(choice);
+
+            storage = storage + temp;
+            output.innerHTML = storage;
+            choice = "";
+            clickdiv = true;
+            clicksub = false;
+            clickadded = false;
+            deciclick = false;
+            multiclick = false;
+        }
+        else if (clicksub == true) {
+            var temp = Number(choice);
+
+            storage = storage -temp;
+            output.innerHTML = storage;
+            choice = "";
+            clickdiv = true;
+            clicksub = false;
+            clickadded = false;
+            deciclick = false;
+        }
+        else if (clickdiv == true) {
+            var temp = Number(choice);
+
+            storage = storage / temp;
+            output.innerHTML = storage;
+            choice = "";
+            clickdiv = true;
+            clicksub = false;
+            clickadded = false;
+            deciclick = false;
+        }
+        else if (multiclick == true) {
+            var temp = Number(choice);
+
+            storage = storage * temp;
+            output.innerHTML = storage;
+            choice = "";
+            clickdiv = true;
+            multiclick = false;
+            clicksub = false;
+            clickadded = false;
+            deciclick = false;
+        }
+    }
 }
 
 function mult(){
-    storage = storage * choice;
+    if (equalclick = true){
+        equalclick = false;
+    }
+    if (operatorclick == false){
+        operatorclick = true;
+        var temp = Number(choice);
+        storage = storage +temp;
+        choice = ""
+        multiclick = true;
+        deciclick = false;
+        equalclick = false;
+
+    }
+    else {
+        if (clickadded == true) {
+            var temp = Number(choice);
+
+            storage = storage + temp;
+            output.innerHTML = storage;
+            choice = "";
+            multiclick = true;
+            clickdiv = false;
+            clicksub = false;
+            clickadded = false;
+            deciclick = false;
+        }
+        else if (clicksub == true) {
+            var temp = Number(choice);
+
+            storage = storage -temp;
+            output.innerHTML = storage;
+            choice = "";
+            multiclick = true;
+            clickdiv = false;
+            clicksub = false;
+            clickadded = false;
+            deciclick = false;
+        }
+        else if (clickdiv == true) {
+            var temp = Number(choice);
+
+            storage = storage / temp;
+            output.innerHTML = storage;
+            choice = "";
+            multiclick = true;
+            clickdiv = false;
+            clicksub = false;
+            clickadded = false;
+            deciclick = false;
+        }
+        else if (multiclick == true) {
+            var temp = Number(choice);
+
+            storage = storage * temp;
+            output.innerHTML = storage;
+            choice = "";
+            multiclick = true;
+            clickdiv = false;
+            clicksub = false;
+            clickadded = false;
+            deciclick = false;
+        }
+    }
 }
 
 function equal(){
-    storage = storage + choice;
+    if(clickadded == true) {
+        var temp = Number(choice);
+
+        storage = storage +temp;
+        output.innerHTML = storage;
+        choice = "";
+        clickadded = true;
+        clicksub = false;
+        deciclick = false;
+        clickdiv = false;
+        multiclick = false;
+        equalclick = true;
+    }
+    else if (clicksub == true) {
+        var temp = Number(choice);
+
+        storage = storage - temp;
+        output.innerHTML = storage;
+        choice = "";
+        clicksub = false;
+        clickadded = true;
+        deciclick = false;
+        clickdiv = false;
+        multiclick = false;
+        equalclick = true;
+    }
+    else if (multiclick == true) {
+        var temp = Number(choice);
+
+        storage = storage * temp;
+        output.innerHTML = storage;
+        choice = "";
+        clicksub = false;
+        clickadded = true;
+        deciclick = false;
+        clickdiv = false;
+        multiclick = false;
+        equalclick = true;
+    }
+    else if (clickdiv == true) {
+        var temp = Number(choice);
+
+        storage = storage / temp;
+        output.innerHTML = storage;
+        choice = "";
+        clicksub = false;
+        clickadded = true;
+        deciclick = false;
+        clickdiv = false;
+        multiclick = false;
+        equalclick = true;
+    }
 }
 
 function clear(){
-    output.innerHTML =0
+    output.innerHTML =0;
     choice = "";
     storage = 0;
+    operatorclick = false;
+    deciclick = false;
+    clickadded = false;
+    clickdiv = false;
+    clicksub = false;
+    multiclick = false;
 }
 
