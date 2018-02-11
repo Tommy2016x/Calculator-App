@@ -404,10 +404,15 @@ function mult(){
 }
 
 function equal(){
-    if(clickadded == true) {
-        var temp = Number(choice);
-
-        storage = storage +temp;
+    if(clickadded == true && clicksub == false && multiclick == false && clickdiv == false) {
+        if (equalclick == false) {
+            var temp = Number(choice);
+            storage = storage +temp;
+            equalchoice = temp;
+        }
+        else {
+            storage = storage + equalchoice;
+        }
         output.innerHTML = storage;
         choice = "";
         clickadded = true;
@@ -418,12 +423,17 @@ function equal(){
         equalclick = true;
     }
     else if (clicksub == true) {
-        var temp = Number(choice);
-
-        storage = storage - temp;
+        if (equalclick == false) {
+            var temp = Number(choice);
+            storage = storage -temp;
+            equalchoice = temp;
+        }
+        else {
+            storage = storage - equalchoice;
+        }
         output.innerHTML = storage;
         choice = "";
-        clicksub = false;
+        clicksub = true;
         clickadded = true;
         deciclick = false;
         clickdiv = false;
@@ -431,28 +441,38 @@ function equal(){
         equalclick = true;
     }
     else if (multiclick == true) {
-        var temp = Number(choice);
-
-        storage = storage * temp;
+        if (equalclick == false) {
+            var temp = Number(choice);
+            storage = storage * temp;
+            equalchoice = temp;
+        }
+        else {
+            storage = storage * equalchoice;
+        }
         output.innerHTML = storage;
         choice = "";
         clicksub = false;
         clickadded = true;
         deciclick = false;
         clickdiv = false;
-        multiclick = false;
+        multiclick = true;
         equalclick = true;
     }
     else if (clickdiv == true) {
-        var temp = Number(choice);
-
-        storage = storage / temp;
+        if (equalclick == false) {
+            var temp = Number(choice);
+            storage = storage / temp;
+            equalchoice = temp;
+        }
+        else {
+            storage = storage / equalchoice;
+        }
         output.innerHTML = storage;
         choice = "";
         clicksub = false;
         clickadded = true;
         deciclick = false;
-        clickdiv = false;
+        clickdiv = true;
         multiclick = false;
         equalclick = true;
     }
