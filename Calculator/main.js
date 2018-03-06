@@ -1,5 +1,4 @@
 var output = document.getElementById("output");
-
 var storage = 0;
 var choice = "";
 var operatorclick = false;
@@ -10,7 +9,6 @@ var deciclick = false;
 var multiclick = false;
 var equalclick = false;
 var equalchoice = 0;
-
 
 var btnclear =document.getElementById("btnclear");
 var btn0 =document.getElementById("btn0");
@@ -132,8 +130,6 @@ function clickdeci() {
         output.innerHTML = choice;
         deciclick = true;
     }
-
-
 
 }
 
@@ -269,8 +265,6 @@ function sub(){
             deciclick = false;
         }
     }
-
-
 }
 
 function div(){
