@@ -153,50 +153,34 @@ function add(){
             var temp = Number(choice);
 
             storage = storage +temp;
-            output.innerHTML = storage;
-            choice = "";
-            clickadded = true;
-            clicksub = false;
-            deciclick = false;
-            clickdiv = false;
-            multiclick = false;
+            
         }
         else if (clicksub == true){
             var temp = Number(choice);
 
             storage = storage -temp;
-            output.innerHTML = storage;
-            choice = "";
-            clickadded = true;
-            clicksub = false;
-            deciclick = false;
-            clickdiv = false;
-            multiclick = false;
+            
         }
         else if (clickdiv == true) {
             var temp = Number(choice);
 
             storage = storage / temp;
-            output.innerHTML = storage;
-            choice = "";
-            clickadded = true;
-            clicksub = false;
-            deciclick = false;
-            clickdiv = false;
-            multiclick = false;
+            
         }
         else if (multiclick == true) {
             var temp = Number(choice);
 
             storage = storage * temp;
-            output.innerHTML = storage;
+            
+        }
+
+        output.innerHTML = storage;
             choice = "";
             clickadded = true;
-            multiclick = false;
-            clickdiv = false;
             clicksub = false;
             deciclick = false;
-        }
+            clickdiv = false;
+            multiclick = false;
     }
 
 }
@@ -220,50 +204,33 @@ function sub(){
             var temp = Number(choice);
 
             storage = storage +temp;
-            output.innerHTML = storage;
-            choice = "";
-            clicksub = true;
-            clickadded = false;
-            deciclick = false;
-            clickdiv = false;
-            multiclick = false;
+            
         }
         else if (clicksub == true) {
             var temp = Number(choice);
 
             storage = storage -temp;
-            output.innerHTML = storage;
-            choice = "";
-            clicksub = true;
-            clickadded = false;
-            deciclick = false;
-            clickdiv = false;
-            multiclick = false;
+            
         }
         else if (clickdiv == true) {
             var temp = Number(choice);
 
             storage = storage / temp;
-            output.innerHTML = storage;
-            choice = "";
-            clicksub = true;
-            clickadded = false;
-            deciclick = false;
-            clickdiv = false;
-            multiclick = false;
+            
         }
         else if (multiclick == true) {
             var temp = Number(choice);
 
             storage = storage * temp;
-            output.innerHTML = storage;
+            
+        }
+        output.innerHTML = storage;
             choice = "";
             clicksub = true;
-            multiclick = false;
-            clickdiv = false;
             clickadded = false;
             deciclick = false;
-        }
+            clickdiv = false;
+            multiclick = false;
     }
 }
 
@@ -286,48 +253,33 @@ function div(){
             var temp = Number(choice);
 
             storage = storage + temp;
-            output.innerHTML = storage;
-            choice = "";
-            clickdiv = true;
-            clicksub = false;
-            clickadded = false;
-            deciclick = false;
-            multiclick = false;
+            
         }
         else if (clicksub == true) {
             var temp = Number(choice);
 
             storage = storage -temp;
-            output.innerHTML = storage;
-            choice = "";
-            clickdiv = true;
-            clicksub = false;
-            clickadded = false;
-            deciclick = false;
+            
         }
         else if (clickdiv == true) {
             var temp = Number(choice);
 
             storage = storage / temp;
-            output.innerHTML = storage;
-            choice = "";
-            clickdiv = true;
-            clicksub = false;
-            clickadded = false;
-            deciclick = false;
+            
         }
         else if (multiclick == true) {
             var temp = Number(choice);
 
             storage = storage * temp;
-            output.innerHTML = storage;
+            
+        }
+        output.innerHTML = storage;
             choice = "";
             clickdiv = true;
-            multiclick = false;
             clicksub = false;
             clickadded = false;
             deciclick = false;
-        }
+            multiclick = false;
     }
 }
 
@@ -350,50 +302,33 @@ function mult(){
             var temp = Number(choice);
 
             storage = storage + temp;
-            output.innerHTML = storage;
-            choice = "";
-            multiclick = true;
-            clickdiv = false;
-            clicksub = false;
-            clickadded = false;
-            deciclick = false;
+            
         }
         else if (clicksub == true) {
             var temp = Number(choice);
 
             storage = storage -temp;
-            output.innerHTML = storage;
-            choice = "";
-            multiclick = true;
-            clickdiv = false;
-            clicksub = false;
-            clickadded = false;
-            deciclick = false;
+            
         }
         else if (clickdiv == true) {
             var temp = Number(choice);
 
             storage = storage / temp;
-            output.innerHTML = storage;
-            choice = "";
-            multiclick = true;
-            clickdiv = false;
-            clicksub = false;
-            clickadded = false;
-            deciclick = false;
+            
         }
         else if (multiclick == true) {
             var temp = Number(choice);
 
             storage = storage * temp;
-            output.innerHTML = storage;
+           
+        }
+        output.innerHTML = storage;
             choice = "";
             multiclick = true;
             clickdiv = false;
             clicksub = false;
             clickadded = false;
             deciclick = false;
-        }
     }
 }
 
