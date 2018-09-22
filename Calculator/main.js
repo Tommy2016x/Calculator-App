@@ -261,7 +261,7 @@ function div(){
             storage = storage -temp;
             
         }
-        else if (clickdiv == true) {
+        else if (clickdiv == true && choice) {
             var temp = Number(choice);
 
             storage = storage / temp;
@@ -316,7 +316,7 @@ function mult(){
             storage = storage / temp;
             
         }
-        else if (multiclick == true) {
+        else if (multiclick == true && choice) {
             var temp = Number(choice);
 
             storage = storage * temp;
